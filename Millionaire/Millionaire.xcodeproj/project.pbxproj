@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		C850CC4A2549EEEC000A1803 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850CC492549EEEC000A1803 /* AppDelegate.swift */; };
 		C850CC4C2549EEEC000A1803 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850CC4B2549EEEC000A1803 /* SceneDelegate.swift */; };
-		C850CC4E2549EEEC000A1803 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850CC4D2549EEEC000A1803 /* ViewController.swift */; };
+		C850CC4E2549EEEC000A1803 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850CC4D2549EEEC000A1803 /* GameViewController.swift */; };
 		C850CC512549EEEC000A1803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C850CC4F2549EEEC000A1803 /* Main.storyboard */; };
 		C850CC532549EEED000A1803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C850CC522549EEED000A1803 /* Assets.xcassets */; };
 		C850CC562549EEED000A1803 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C850CC542549EEED000A1803 /* LaunchScreen.storyboard */; };
+		C850CC63254A6A32000A1803 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850CC62254A6A32000A1803 /* Question.swift */; };
+		C850CC66254B4C85000A1803 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850CC65254B4C85000A1803 /* QuestionData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C850CC462549EEEC000A1803 /* Millionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Millionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C850CC492549EEEC000A1803 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C850CC4B2549EEEC000A1803 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C850CC4D2549EEEC000A1803 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C850CC4D2549EEEC000A1803 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C850CC502549EEEC000A1803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C850CC522549EEED000A1803 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C850CC552549EEED000A1803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C850CC572549EEED000A1803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C850CC62254A6A32000A1803 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		C850CC65254B4C85000A1803 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,9 @@
 		C850CC482549EEEC000A1803 /* Millionaire */ = {
 			isa = PBXGroup;
 			children = (
-				C850CC4D2549EEEC000A1803 /* ViewController.swift */,
+				C850CC62254A6A32000A1803 /* Question.swift */,
+				C850CC65254B4C85000A1803 /* QuestionData.swift */,
+				C850CC4D2549EEEC000A1803 /* GameViewController.swift */,
 				C850CC4F2549EEEC000A1803 /* Main.storyboard */,
 				C850CC5E2549EF10000A1803 /* SupportingFiles */,
 				C850CC572549EEED000A1803 /* Info.plist */,
@@ -145,7 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C850CC4E2549EEEC000A1803 /* ViewController.swift in Sources */,
+				C850CC4E2549EEEC000A1803 /* GameViewController.swift in Sources */,
+				C850CC63254A6A32000A1803 /* Question.swift in Sources */,
+				C850CC66254B4C85000A1803 /* QuestionData.swift in Sources */,
 				C850CC4A2549EEEC000A1803 /* AppDelegate.swift in Sources */,
 				C850CC4C2549EEEC000A1803 /* SceneDelegate.swift in Sources */,
 			);
