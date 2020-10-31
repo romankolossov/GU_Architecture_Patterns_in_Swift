@@ -7,14 +7,23 @@
 
 import UIKit
 
+protocol GameViewControllerDelegate: AnyObject {
+    func didEndGame(with result: Int)
+}
+
 class GameViewController: UIViewController {
-    
-    @IBOutlet weak var questionTextView: UITextView!
     
     @IBOutlet weak var answerAButton: UIButton!
     @IBOutlet weak var answerBButton: UIButton!
     @IBOutlet weak var answerCButton: UIButton!
     @IBOutlet weak var answerDButton: UIButton!
+    @IBOutlet weak var questionTextView: UITextView!
+    
+    // Delegate property
+    weak var gameVCDelegate: GameViewControllerDelegate?
+    
+    // Closure property
+    var onGameEnd: ((Int) -> Void)?
     
     // Some propertioes
     var questions: [Question] = []
@@ -23,7 +32,7 @@ class GameViewController: UIViewController {
     let questionData = QuestionData()
     var score: Int = 0
     
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,8 +83,13 @@ class GameViewController: UIViewController {
             guard let mainVC = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { fatalError() }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
-                self?.dismiss(animated: true, completion: nil)
-                self?.present(mainVC, animated: true, completion: nil)
+                guard let self = self else { return }
+                
+                self.gameVCDelegate?.didEndGame(with: self.score)
+                self.onGameEnd?(self.score)
+                
+                self.dismiss(animated: true, completion: nil)
+                self.present(mainVC, animated: true, completion: nil)
             }
             return
         }
@@ -88,9 +102,15 @@ class GameViewController: UIViewController {
             #if DEBUG
             print("last question number: \(questionNumber) of \(numberOfQuestions)")
             #endif
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
-                self?.dismiss(animated: true, completion: nil)
-                self?.present(mainVC, animated: true, completion: nil)
+                guard let self = self else { return }
+                
+                self.gameVCDelegate?.didEndGame(with: self.score)
+                self.onGameEnd?(self.score)
+                
+                self.dismiss(animated: true, completion: nil)
+                self.present(mainVC, animated: true, completion: nil)
             }
             return
         }
@@ -98,8 +118,9 @@ class GameViewController: UIViewController {
         questionNumber += 1
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
+            guard let self = self else { return }
             button.titleLabel?.backgroundColor = .none
-            self?.askQuestion(withNumber: self?.questionNumber ?? 1)
+            self.askQuestion(withNumber: self.questionNumber)
         }
     }
     

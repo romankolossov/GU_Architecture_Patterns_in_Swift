@@ -16,11 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="0j9-AK-8KL">
-                                <rect key="frame" x="118" y="368.5" width="178" height="169.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="0j9-AK-8KL">
+                                <rect key="frame" x="11" y="328" width="392" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5S-Om-n4H">
-                                        <rect key="frame" x="38.5" y="0.0" width="101" height="38"/>
+                                        <rect key="frame" x="145.5" y="0.0" width="101" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="New Game"/>
                                         <connections>
@@ -28,7 +28,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQv-zJ-PnR">
-                                        <rect key="frame" x="27.5" y="72" width="123" height="38"/>
+                                        <rect key="frame" x="134.5" y="71" width="123" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Show Results"/>
                                         <connections>
@@ -36,15 +36,20 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your last result is: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRs-S7-m8w">
-                                        <rect key="frame" x="0.5" y="144" width="177" height="25.5"/>
+                                        <rect key="frame" x="107.5" y="142" width="177" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your last result is: 0 (by closure)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9E2-3w-y2Q">
+                                        <rect key="frame" x="51" y="213" width="290" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="0j9-AK-8KL" secondAttribute="height" multiplier="177:169" id="L0l-JL-zXK"/>
-                                    <constraint firstAttribute="height" constant="169.5" id="rTN-n0-aFJ"/>
+                                    <constraint firstAttribute="height" constant="250" id="rTN-n0-aFJ"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -52,9 +57,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0j9-AK-8KL" firstAttribute="centerY" secondItem="GdC-aD-fK9" secondAttribute="centerY" id="Gr3-v5-YTV"/>
+                            <constraint firstItem="GdC-aD-fK9" firstAttribute="trailing" secondItem="0j9-AK-8KL" secondAttribute="trailing" constant="11" id="Qdw-oi-dHT"/>
+                            <constraint firstItem="0j9-AK-8KL" firstAttribute="leading" secondItem="GdC-aD-fK9" secondAttribute="leading" constant="11" id="eAs-h6-tdd"/>
                             <constraint firstItem="0j9-AK-8KL" firstAttribute="centerX" secondItem="GdC-aD-fK9" secondAttribute="centerX" id="lyH-zs-uNY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scoreByClosureLable" destination="9E2-3w-y2Q" id="2af-kn-7Ts"/>
+                        <outlet property="scoreByDelegateLable" destination="wRs-S7-m8w" id="5NB-eh-nV4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcx-e1-29d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,7 +120,7 @@
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="GameViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="GameViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
