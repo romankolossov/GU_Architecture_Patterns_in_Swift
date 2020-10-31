@@ -16,16 +16,19 @@ class GameViewController: UIViewController {
     @IBOutlet weak var answerCButton: UIButton!
     @IBOutlet weak var answerDButton: UIButton!
     
+    // Some propertioes
     var questions: [Question] = []
     var questionNumber: Int = 1
+    var numberOfQuestions: Int = 0
     let questionData = QuestionData()
+    var score: Int = 0
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         questions = questionData.getQuestions()
+        numberOfQuestions = questions.count
         
         askQuestion(withNumber: questionNumber)
         
@@ -65,11 +68,38 @@ class GameViewController: UIViewController {
             return
         }
         
-        if questions[question-1].rightAnswer == button.titleLabel?.text {
-            button.titleLabel?.backgroundColor = .green
-        } else {
+        guard questions[question-1].rightAnswer == button.titleLabel?.text else {
             button.titleLabel?.backgroundColor = .red
+            
+            guard let mainVC = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { fatalError() }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+                self?.present(mainVC, animated: true, completion: nil)
+            }
             return
+        }
+        
+        button.titleLabel?.backgroundColor = .green
+        score += 10
+        
+        guard (questionNumber % numberOfQuestions) != 0 else {
+            guard let mainVC = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { fatalError() }
+            #if DEBUG
+            print("last question number: \(questionNumber) of \(numberOfQuestions)")
+            #endif
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+                self?.present(mainVC, animated: true, completion: nil)
+            }
+            return
+        }
+        
+        questionNumber += 1
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
+            button.titleLabel?.backgroundColor = .none
+            self?.askQuestion(withNumber: self?.questionNumber ?? 1)
         }
     }
     

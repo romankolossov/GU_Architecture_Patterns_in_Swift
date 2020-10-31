@@ -47,7 +47,7 @@ final class QuestionData {
     
     let question7 = Question(question: "Вы почти дошли до финала! Шкала Сковилла - это шкала оценки...",
                              rightAnswer: "Остроты перца",
-                             choiceA: "Качества атмосферного воздуха",
+                             choiceA: "Качества воздуха",
                              choiceB: "Привлекательности женщин",
                              choiceC: "Уровня моря")
     
