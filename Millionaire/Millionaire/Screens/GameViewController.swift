@@ -95,7 +95,7 @@ class GameViewController: UIViewController {
         }
         
         button.titleLabel?.backgroundColor = .green
-        score += 10
+        score += 100
         
         guard (questionNumber % numberOfQuestions) != 0 else {
             guard let mainVC = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { fatalError() }

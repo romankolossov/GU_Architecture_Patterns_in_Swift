@@ -8,6 +8,10 @@
 import UIKit
 
 class ResultTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var dateLable: UILabel!
+    @IBOutlet weak var scoreLable: UILabel!
+    @IBOutlet weak var completionLable: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

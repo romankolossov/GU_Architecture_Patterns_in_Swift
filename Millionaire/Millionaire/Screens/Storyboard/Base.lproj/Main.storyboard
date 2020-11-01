@@ -52,12 +52,20 @@
                                     <constraint firstAttribute="height" constant="250" id="rTN-n0-aFJ"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who wants to be a Millionaire?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PH-uZ-dbs">
+                                <rect key="frame" x="63.5" y="137" width="287.5" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GdC-aD-fK9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6PH-uZ-dbs" firstAttribute="top" secondItem="GdC-aD-fK9" secondAttribute="top" constant="93" id="Daz-q8-skL"/>
                             <constraint firstItem="0j9-AK-8KL" firstAttribute="centerY" secondItem="GdC-aD-fK9" secondAttribute="centerY" id="Gr3-v5-YTV"/>
                             <constraint firstItem="GdC-aD-fK9" firstAttribute="trailing" secondItem="0j9-AK-8KL" secondAttribute="trailing" constant="11" id="Qdw-oi-dHT"/>
+                            <constraint firstItem="6PH-uZ-dbs" firstAttribute="centerX" secondItem="GdC-aD-fK9" secondAttribute="centerX" id="dRa-Wt-f0T"/>
                             <constraint firstItem="0j9-AK-8KL" firstAttribute="leading" secondItem="GdC-aD-fK9" secondAttribute="leading" constant="11" id="eAs-h6-tdd"/>
                             <constraint firstItem="0j9-AK-8KL" firstAttribute="centerX" secondItem="GdC-aD-fK9" secondAttribute="centerX" id="lyH-zs-uNY"/>
                         </constraints>

@@ -20,6 +20,9 @@
 		C850CC79254D5166000A1803 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850CC77254D5166000A1803 /* ResultTableViewCell.swift */; };
 		C850CC7A254D5166000A1803 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C850CC78254D5166000A1803 /* ResultTableViewCell.xib */; };
 		C8627B4D254D656E00A570FE /* ResultViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8627B4C254D656E00A570FE /* ResultViewController+TableView.swift */; };
+		C8894419254EF39A00DEE93B /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8894418254EF39A00DEE93B /* GameSession.swift */; };
+		C889441D254EF48800DEE93B /* GameSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889441C254EF48800DEE93B /* GameSingletone.swift */; };
+		C8894421254EF75600DEE93B /* GameSessionsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8894420254EF75600DEE93B /* GameSessionsCaretaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		C850CC77254D5166000A1803 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		C850CC78254D5166000A1803 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		C8627B4C254D656E00A570FE /* ResultViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultViewController+TableView.swift"; sourceTree = "<group>"; };
+		C8894418254EF39A00DEE93B /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
+		C889441C254EF48800DEE93B /* GameSingletone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSingletone.swift; sourceTree = "<group>"; };
+		C8894420254EF75600DEE93B /* GameSessionsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSessionsCaretaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,8 @@
 		C850CC482549EEEC000A1803 /* Millionaire */ = {
 			isa = PBXGroup;
 			children = (
+				C889441F254EF68C00DEE93B /* Memento */,
+				C889441B254EF46800DEE93B /* Singletone */,
 				C850CC69254D48F1000A1803 /* Models */,
 				C850CC75254D50A1000A1803 /* Components */,
 				C850CC6A254D4910000A1803 /* Screens */,
@@ -95,6 +103,7 @@
 			children = (
 				C850CC62254A6A32000A1803 /* Question.swift */,
 				C850CC65254B4C85000A1803 /* QuestionData.swift */,
+				C8894418254EF39A00DEE93B /* GameSession.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,6 +151,22 @@
 				C8627B4C254D656E00A570FE /* ResultViewController+TableView.swift */,
 			);
 			path = Result;
+			sourceTree = "<group>";
+		};
+		C889441B254EF46800DEE93B /* Singletone */ = {
+			isa = PBXGroup;
+			children = (
+				C889441C254EF48800DEE93B /* GameSingletone.swift */,
+			);
+			path = Singletone;
+			sourceTree = "<group>";
+		};
+		C889441F254EF68C00DEE93B /* Memento */ = {
+			isa = PBXGroup;
+			children = (
+				C8894420254EF75600DEE93B /* GameSessionsCaretaker.swift */,
+			);
+			path = Memento;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,11 +242,14 @@
 			files = (
 				C8627B4D254D656E00A570FE /* ResultViewController+TableView.swift in Sources */,
 				C850CC4E2549EEEC000A1803 /* GameViewController.swift in Sources */,
+				C8894419254EF39A00DEE93B /* GameSession.swift in Sources */,
 				C850CC63254A6A32000A1803 /* Question.swift in Sources */,
 				C850CC79254D5166000A1803 /* ResultTableViewCell.swift in Sources */,
 				C850CC72254D4C1B000A1803 /* ResultViewController.swift in Sources */,
 				C850CC66254B4C85000A1803 /* QuestionData.swift in Sources */,
+				C889441D254EF48800DEE93B /* GameSingletone.swift in Sources */,
 				C850CC6D254D49D6000A1803 /* MainViewController.swift in Sources */,
+				C8894421254EF75600DEE93B /* GameSessionsCaretaker.swift in Sources */,
 				C850CC4A2549EEEC000A1803 /* AppDelegate.swift in Sources */,
 				C850CC4C2549EEEC000A1803 /* SceneDelegate.swift in Sources */,
 			);

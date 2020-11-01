@@ -12,15 +12,24 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(UINib(nibName: "ResultTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "ResultTableViewCell")
+            
             tableView.delegate = self
             tableView.dataSource = self
         }
     }
     
+    let dateFormater: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yyyy HH.mm"
+        
+        return df
+    }()
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
- 
+        
     }
     
 // MARK: - Actions

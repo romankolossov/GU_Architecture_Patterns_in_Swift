@@ -15,11 +15,20 @@ extension ResultViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return GameSingleton.shared.gameSessions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableViewCell", for: indexPath) as? ResultTableViewCell else { fatalError() }
+        
+        let gameSession = GameSingleton.shared.gameSessions[indexPath.row]
+        
+        let date = gameSession.date
+        let stringDate = dateFormater.string(from: date)
+        
+        cell.dateLable.text = stringDate
+        cell.scoreLable.text = "\(gameSession.score)"
+        cell.completionLable.text = "\(gameSession.score / 10)%"
         
         return cell
     }

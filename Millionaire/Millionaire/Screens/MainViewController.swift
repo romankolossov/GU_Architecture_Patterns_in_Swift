@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scoreByDelegateLable.text = "Your last result is: \(GameSingleton.shared.gameSessions.last?.score.description ?? "0")"
         
         scoreByClosureLable.isHidden = true
     }
@@ -41,6 +42,9 @@ class MainViewController: UIViewController {
 
 extension MainViewController: GameViewControllerDelegate {
     func didEndGame(with result: Int) {
+        let gameSession = GameSession(date: Date(), score: result)
+        
+        GameSingleton.shared.addGameSession(gameSession: gameSession)
         scoreByDelegateLable.text = "Your last result is: \(result) (by delegate)"
     }
 }
