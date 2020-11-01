@@ -71,8 +71,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="scoreByClosureLable" destination="9E2-3w-y2Q" id="2af-kn-7Ts"/>
-                        <outlet property="scoreByDelegateLable" destination="wRs-S7-m8w" id="5NB-eh-nV4"/>
+                        <outlet property="scoreByClosureLabel" destination="9E2-3w-y2Q" id="2af-kn-7Ts"/>
+                        <outlet property="scoreByDelegateLabel" destination="wRs-S7-m8w" id="5NB-eh-nV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcx-e1-29d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

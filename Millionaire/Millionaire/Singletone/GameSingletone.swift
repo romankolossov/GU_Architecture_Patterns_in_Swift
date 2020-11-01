@@ -22,6 +22,7 @@ class GameSingleton {
     // Caretaker
     private let gameSessionsCaretaker = GameSessionsCaretaker()
     
+    // Initializer
     private init() {
         gameSessions = gameSessionsCaretaker.loadGameSessions() ?? []
     }

@@ -141,6 +141,5 @@ class GameViewController: UIViewController {
     @objc private func answerDButtonAction()  {
         checkRightAnswer(for: questionNumber, whenPressed: answerDButton)
     }
-    
 }
 

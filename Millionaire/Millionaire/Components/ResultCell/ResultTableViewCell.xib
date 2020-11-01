@@ -80,9 +80,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="completionLable" destination="tF3-aH-dgT" id="Fhn-xa-HPF"/>
-                <outlet property="dateLable" destination="rua-fs-Eqr" id="8Cg-QQ-JA1"/>
-                <outlet property="scoreLable" destination="u94-nM-DKh" id="a8E-ma-hke"/>
+                <outlet property="completionLabel" destination="tF3-aH-dgT" id="Fhn-xa-HPF"/>
+                <outlet property="dateLabel" destination="rua-fs-Eqr" id="8Cg-QQ-JA1"/>
+                <outlet property="scoreLabel" destination="u94-nM-DKh" id="a8E-ma-hke"/>
             </connections>
             <point key="canvasLocation" x="335" y="25"/>
         </tableViewCell>

@@ -76,8 +76,8 @@
 		C850CC482549EEEC000A1803 /* Millionaire */ = {
 			isa = PBXGroup;
 			children = (
-				C889441F254EF68C00DEE93B /* Memento */,
 				C889441B254EF46800DEE93B /* Singletone */,
+				C889441F254EF68C00DEE93B /* Memento */,
 				C850CC69254D48F1000A1803 /* Models */,
 				C850CC75254D50A1000A1803 /* Components */,
 				C850CC6A254D4910000A1803 /* Screens */,
@@ -112,8 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				C850CC6B254D494B000A1803 /* Storyboard */,
-				C850CC6C254D49D6000A1803 /* MainViewController.swift */,
-				C850CC4D2549EEEC000A1803 /* GameViewController.swift */,
+				C8894423254F3C8E00DEE93B /* Main */,
+				C8894424254F3CA800DEE93B /* Game */,
 				C8627B4F254D657B00A570FE /* Result */,
 			);
 			path = Screens;
@@ -167,6 +167,22 @@
 				C8894420254EF75600DEE93B /* GameSessionsCaretaker.swift */,
 			);
 			path = Memento;
+			sourceTree = "<group>";
+		};
+		C8894423254F3C8E00DEE93B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C850CC6C254D49D6000A1803 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C8894424254F3CA800DEE93B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				C850CC4D2549EEEC000A1803 /* GameViewController.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

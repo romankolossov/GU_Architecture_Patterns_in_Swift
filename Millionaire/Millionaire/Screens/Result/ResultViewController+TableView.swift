@@ -26,9 +26,11 @@ extension ResultViewController: UITableViewDataSource {
         let date = gameSession.date
         let stringDate = dateFormater.string(from: date)
         
-        cell.dateLable.text = stringDate
-        cell.scoreLable.text = "\(gameSession.score)"
-        cell.completionLable.text = "\(gameSession.score / 10)%"
+        cell.dateLabel.text = stringDate
+        cell.scoreLabel.text = "\(gameSession.score)"
+        cell.completionLabel.text = "\(gameSession.score / 10)%"
+        
+        cell.cellDelegate = self
         
         return cell
     }
@@ -39,5 +41,14 @@ extension ResultViewController: UITableViewDataSource {
 extension ResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+}
+
+// MARK: - ResultTableViewCellDelegate
+
+extension ResultViewController: ResultTableViewCellDelegate {
+    func didTapOnDateLabel(dateLabelText: String) {
+        print("---Tapped on label")
+        print(dateLabelText)
     }
 }

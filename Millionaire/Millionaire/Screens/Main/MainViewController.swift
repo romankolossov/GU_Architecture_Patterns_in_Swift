@@ -9,16 +9,16 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var scoreByDelegateLable: UILabel!
-    @IBOutlet weak var scoreByClosureLable: UILabel!
+    @IBOutlet weak var scoreByDelegateLabel: UILabel!
+    @IBOutlet weak var scoreByClosureLabel: UILabel!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scoreByDelegateLable.text = "Your last result is: \(GameSingleton.shared.gameSessions.last?.score.description ?? "0")"
+        scoreByDelegateLabel.text = "Your last result is: \(GameSingleton.shared.gameSessions.last?.score.description ?? "0")"
         
-        scoreByClosureLable.isHidden = true
+        scoreByClosureLabel.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,8 +29,8 @@ class MainViewController: UIViewController {
             destination.gameVCDelegate = self
             
             destination.onGameEnd = { [weak self] result in
-                self?.scoreByClosureLable.text = "Your last result is: \(result) (by closure)"
-                self?.scoreByClosureLable.isHidden = false
+                self?.scoreByClosureLabel.text = "Your last result is: \(result) (by closure)"
+                self?.scoreByClosureLabel.isHidden = false
             }
         default:
             break
@@ -45,6 +45,6 @@ extension MainViewController: GameViewControllerDelegate {
         let gameSession = GameSession(date: Date(), score: result)
         
         GameSingleton.shared.addGameSession(gameSession: gameSession)
-        scoreByDelegateLable.text = "Your last result is: \(result) (by delegate)"
+        scoreByDelegateLabel.text = "Your last result is: \(result) (by delegate)"
     }
 }
