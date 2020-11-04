@@ -11,6 +11,19 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var scoreByDelegateLabel: UILabel!
     @IBOutlet weak var scoreByClosureLabel: UILabel!
+    @IBOutlet weak var difficultySegmentControl: UISegmentedControl!
+    
+    // Some properties
+    private var selectedDifficulty: Difficulty {
+        switch difficultySegmentControl.selectedSegmentIndex {
+        case 0:
+            return .normal
+        case 1:
+            return .random
+        default:
+            return .normal
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -27,6 +40,8 @@ class MainViewController: UIViewController {
             guard let destination =  segue.destination as? GameViewController else { return }
             
             destination.gameVCDelegate = self
+            
+            destination.difficulty = selectedDifficulty
             
             destination.onGameEnd = { [weak self] result in
                 self?.scoreByClosureLabel.text = "Your last result is: \(result) (by closure)"

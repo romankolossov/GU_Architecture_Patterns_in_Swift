@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="0j9-AK-8KL">
-                                <rect key="frame" x="11" y="328" width="392" height="250"/>
+                                <rect key="frame" x="11" y="354" width="392" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5S-Om-n4H">
                                         <rect key="frame" x="145.5" y="0.0" width="101" height="37"/>
@@ -53,24 +53,45 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who wants to be a Millionaire?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PH-uZ-dbs">
-                                <rect key="frame" x="63.5" y="137" width="287.5" height="26.5"/>
+                                <rect key="frame" x="63.5" y="112" width="287.5" height="26.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2E2-MN-fVY">
+                                <rect key="frame" x="137.5" y="206.5" width="139" height="59.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtL-7k-gX8">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gs3-Yf-H7N">
+                                        <rect key="frame" x="0.0" y="28.5" width="139" height="32"/>
+                                        <segments>
+                                            <segment title="Normal"/>
+                                            <segment title="Random"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GdC-aD-fK9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6PH-uZ-dbs" firstAttribute="top" secondItem="GdC-aD-fK9" secondAttribute="top" constant="93" id="Daz-q8-skL"/>
-                            <constraint firstItem="0j9-AK-8KL" firstAttribute="centerY" secondItem="GdC-aD-fK9" secondAttribute="centerY" id="Gr3-v5-YTV"/>
+                            <constraint firstItem="6PH-uZ-dbs" firstAttribute="top" secondItem="GdC-aD-fK9" secondAttribute="top" constant="68" id="LiO-53-SBL"/>
                             <constraint firstItem="GdC-aD-fK9" firstAttribute="trailing" secondItem="0j9-AK-8KL" secondAttribute="trailing" constant="11" id="Qdw-oi-dHT"/>
-                            <constraint firstItem="6PH-uZ-dbs" firstAttribute="centerX" secondItem="GdC-aD-fK9" secondAttribute="centerX" id="dRa-Wt-f0T"/>
+                            <constraint firstItem="6PH-uZ-dbs" firstAttribute="centerX" secondItem="GdC-aD-fK9" secondAttribute="centerX" id="TXg-vg-rjB"/>
                             <constraint firstItem="0j9-AK-8KL" firstAttribute="leading" secondItem="GdC-aD-fK9" secondAttribute="leading" constant="11" id="eAs-h6-tdd"/>
                             <constraint firstItem="0j9-AK-8KL" firstAttribute="centerX" secondItem="GdC-aD-fK9" secondAttribute="centerX" id="lyH-zs-uNY"/>
+                            <constraint firstItem="2E2-MN-fVY" firstAttribute="centerX" secondItem="6PH-uZ-dbs" secondAttribute="centerX" id="lzE-3y-uLN"/>
+                            <constraint firstItem="0j9-AK-8KL" firstAttribute="top" secondItem="2E2-MN-fVY" secondAttribute="bottom" constant="88" id="yxz-8f-YK8"/>
+                            <constraint firstItem="2E2-MN-fVY" firstAttribute="top" secondItem="6PH-uZ-dbs" secondAttribute="bottom" constant="68" id="zxe-W6-70P"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="difficultySegmentControl" destination="gs3-Yf-H7N" id="kOh-sU-b3A"/>
                         <outlet property="scoreByClosureLabel" destination="9E2-3w-y2Q" id="2af-kn-7Ts"/>
                         <outlet property="scoreByDelegateLabel" destination="wRs-S7-m8w" id="5NB-eh-nV4"/>
                     </connections>

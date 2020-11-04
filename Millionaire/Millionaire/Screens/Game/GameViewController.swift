@@ -25,7 +25,10 @@ class GameViewController: UIViewController {
     // Closure property
     var onGameEnd: ((Int) -> Void)?
     
-    // Some propertioes
+    // Strategy difficulty property
+    var difficulty: Difficulty = .normal
+    
+    // Some properties
     var questions: [Question] = []
     var questionNumber: Int = 1
     var numberOfQuestions: Int = 0
@@ -36,7 +39,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questions = questionData.getQuestions()
+        let strategy = createQuestionStrategy()
+        
+        questions = strategy.generateQuestions()
         numberOfQuestions = questions.count
         
         askQuestion(withNumber: questionNumber)
@@ -50,6 +55,15 @@ class GameViewController: UIViewController {
     
     // MARK: - Major methods
     
+    private func createQuestionStrategy() -> QuestinableStrategy {
+        switch difficulty {
+        case .normal:
+            return NormalQuestionStrategy()
+        case .random:
+            return RandomQuestionStrategy()
+        }
+    }
+    
     func askQuestion(withNumber question: Int) {
         guard (question >= 1) && (question <= 10) else {
             print("Question number \(question) in \(#function) is out of range")
@@ -62,7 +76,25 @@ class GameViewController: UIViewController {
         questions[question - 1].choiceB,
         questions[question - 1].choiceC ]
         
-        questionTextView.text = questions[question - 1].question
+        var prefix: String = ""
+        
+        switch question {
+        case 1:
+            prefix = "Итак, первый вопрос! "
+        case 2:
+            prefix = "Продолжаем игру. "
+        case 5:
+            prefix = "Вопрос номер пять. "
+        case 8:
+            prefix = "Восьмой вопрос! "
+        case (questions.count - 3):
+            prefix = "Вы почти дошли до финала! "
+        case questions.count:
+            prefix = "Решающий вопрос. "
+        default:
+            prefix = ""
+        }
+        questionTextView.text = prefix + questions[question - 1].question
         
         titles.shuffle()
         answerAButton.setTitle(titles[0], for: .normal)
