@@ -28,6 +28,7 @@
 		C889442F2553057900DEE93B /* RandomQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889442E2553057900DEE93B /* RandomQuestionStrategy.swift */; };
 		C88944322553059200DEE93B /* QuestionStrategyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88944312553059200DEE93B /* QuestionStrategyProtocol.swift */; };
 		C8C07E482553249000A43ACC /* Oservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C07E472553249000A43ACC /* Oservable.swift */; };
+		C8C07E4C25534FD100A43ACC /* CustomQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C07E4B25534FD100A43ACC /* CustomQuestionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		C889442E2553057900DEE93B /* RandomQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuestionStrategy.swift; sourceTree = "<group>"; };
 		C88944312553059200DEE93B /* QuestionStrategyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStrategyProtocol.swift; sourceTree = "<group>"; };
 		C8C07E472553249000A43ACC /* Oservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oservable.swift; sourceTree = "<group>"; };
+		C8C07E4B25534FD100A43ACC /* CustomQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomQuestionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				C8894423254F3C8E00DEE93B /* Main */,
 				C8894424254F3CA800DEE93B /* Game */,
 				C8627B4F254D657B00A570FE /* Result */,
+				C8C07E4A25534F6700A43ACC /* CustomQuestion */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -216,6 +219,14 @@
 			path = Oservable;
 			sourceTree = "<group>";
 		};
+		C8C07E4A25534F6700A43ACC /* CustomQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				C8C07E4B25534FD100A43ACC /* CustomQuestionViewController.swift */,
+			);
+			path = CustomQuestion;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -300,6 +311,7 @@
 				C850CC6D254D49D6000A1803 /* MainViewController.swift in Sources */,
 				C889442F2553057900DEE93B /* RandomQuestionStrategy.swift in Sources */,
 				C8894421254EF75600DEE93B /* GameSessionsCaretaker.swift in Sources */,
+				C8C07E4C25534FD100A43ACC /* CustomQuestionViewController.swift in Sources */,
 				C88944322553059200DEE93B /* QuestionStrategyProtocol.swift in Sources */,
 				C850CC4A2549EEEC000A1803 /* AppDelegate.swift in Sources */,
 				C850CC4C2549EEEC000A1803 /* SceneDelegate.swift in Sources */,
