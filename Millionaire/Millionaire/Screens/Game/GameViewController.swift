@@ -13,11 +13,13 @@ protocol GameViewControllerDelegate: AnyObject {
 
 class GameViewController: UIViewController {
     
+    @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var answerAButton: UIButton!
     @IBOutlet weak var answerBButton: UIButton!
     @IBOutlet weak var answerCButton: UIButton!
     @IBOutlet weak var answerDButton: UIButton!
-    @IBOutlet weak var questionTextView: UITextView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var completionLabel: UILabel!
     
     // Delegate property
     weak var gameVCDelegate: GameViewControllerDelegate?
@@ -30,10 +32,11 @@ class GameViewController: UIViewController {
     
     // Some properties
     var questions: [Question] = []
-    var questionNumber: Int = 1
     var numberOfQuestions: Int = 0
+    var questionNumber: Int = 1
+    var score = Observable<Int>(0)
+    
     let questionData = QuestionData()
-    var score: Int = 0
     
     // MARK: - Lifecycle
     
@@ -42,9 +45,18 @@ class GameViewController: UIViewController {
         let strategy = createQuestionStrategy()
         
         questions = strategy.generateQuestions()
+        
         numberOfQuestions = questions.count
         
         askQuestion(withNumber: questionNumber)
+        
+        score.addObserver(self, options: [.new, .initial], closure: { [weak self] (score, _) in
+            guard let self = self else { return }
+            let completion = Int(Double(score) / Double(self.numberOfQuestions))
+            
+            self.scoreLabel.text = "Scores: \(score)"
+            self.completionLabel.text = "Completion: \(completion)%"
+        })
         
         // MARK: - Targets
         answerAButton.addTarget(self, action: #selector(answerAButtonAction), for: .touchUpInside)
@@ -55,7 +67,7 @@ class GameViewController: UIViewController {
     
     // MARK: - Major methods
     
-    private func createQuestionStrategy() -> QuestinableStrategy {
+    private func createQuestionStrategy() -> StrategyQuestinable {
         switch difficulty {
         case .normal:
             return NormalQuestionStrategy()
@@ -65,7 +77,7 @@ class GameViewController: UIViewController {
     }
     
     func askQuestion(withNumber question: Int) {
-        guard (question >= 1) && (question <= 10) else {
+        guard (question >= 1) && (question <= numberOfQuestions) else {
             print("Question number \(question) in \(#function) is out of range")
             return
         }
@@ -87,9 +99,9 @@ class GameViewController: UIViewController {
             prefix = "Вопрос номер пять. "
         case 8:
             prefix = "Восьмой вопрос! "
-        case (questions.count - 3):
+        case (numberOfQuestions - 3):
             prefix = "Вы почти дошли до финала! "
-        case questions.count:
+        case numberOfQuestions:
             prefix = "Решающий вопрос. "
         default:
             prefix = ""
@@ -104,7 +116,7 @@ class GameViewController: UIViewController {
     }
     
     func checkRightAnswer(for question: Int, whenPressed button: UIButton) {
-        guard (question >= 1) && (question <= 10) else {
+        guard (question >= 1) && (question <= numberOfQuestions) else {
             print("Question number \(question) in \(#function) is out of range")
             return
         }
@@ -117,8 +129,8 @@ class GameViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
                 guard let self = self else { return }
                 
-                self.gameVCDelegate?.didEndGame(with: self.score)
-                self.onGameEnd?(self.score)
+                self.gameVCDelegate?.didEndGame(with: self.score.value)
+                self.onGameEnd?(self.score.value)
                 
                 self.dismiss(animated: true, completion: nil)
                 self.present(mainVC, animated: true, completion: nil)
@@ -127,7 +139,7 @@ class GameViewController: UIViewController {
         }
         
         button.titleLabel?.backgroundColor = .green
-        score += 100
+        score.value += 100
         
         guard (questionNumber % numberOfQuestions) != 0 else {
             guard let mainVC = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { fatalError() }
@@ -138,8 +150,8 @@ class GameViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
                 guard let self = self else { return }
                 
-                self.gameVCDelegate?.didEndGame(with: self.score)
-                self.onGameEnd?(self.score)
+                self.gameVCDelegate?.didEndGame(with: self.score.value)
+                self.onGameEnd?(self.score.value)
                 
                 self.dismiss(animated: true, completion: nil)
                 self.present(mainVC, animated: true, completion: nil)
@@ -152,6 +164,7 @@ class GameViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
             guard let self = self else { return }
             button.titleLabel?.backgroundColor = .none
+            
             self.askQuestion(withNumber: self.questionNumber)
         }
     }

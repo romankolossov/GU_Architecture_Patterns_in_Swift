@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NormalQuestionStrategy: QuestinableStrategy {
+class NormalQuestionStrategy: StrategyQuestinable {
     func generateQuestions() -> [Question] {
         let questionData = QuestionData()
         

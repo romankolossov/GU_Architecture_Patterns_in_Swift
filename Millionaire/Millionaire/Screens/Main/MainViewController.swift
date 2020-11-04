@@ -29,7 +29,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scoreByDelegateLabel.text = "Your last result is: \(GameSingleton.shared.gameSessions.last?.score.description ?? "0")"
+        let lasrResultScore = GameSingleton.shared.gameSessions.last?.score.description ?? "0"
+        
+        scoreByDelegateLabel.text = "Your last result is: \(lasrResultScore)"
         
         scoreByClosureLabel.isHidden = true
     }

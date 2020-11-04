@@ -27,6 +27,7 @@
 		C889442C2553056200DEE93B /* NormalQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889442B2553056200DEE93B /* NormalQuestionStrategy.swift */; };
 		C889442F2553057900DEE93B /* RandomQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889442E2553057900DEE93B /* RandomQuestionStrategy.swift */; };
 		C88944322553059200DEE93B /* QuestionStrategyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88944312553059200DEE93B /* QuestionStrategyProtocol.swift */; };
+		C8C07E482553249000A43ACC /* Oservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C07E472553249000A43ACC /* Oservable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C889442B2553056200DEE93B /* NormalQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalQuestionStrategy.swift; sourceTree = "<group>"; };
 		C889442E2553057900DEE93B /* RandomQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuestionStrategy.swift; sourceTree = "<group>"; };
 		C88944312553059200DEE93B /* QuestionStrategyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStrategyProtocol.swift; sourceTree = "<group>"; };
+		C8C07E472553249000A43ACC /* Oservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oservable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				C889441B254EF46800DEE93B /* Singletone */,
 				C889441F254EF68C00DEE93B /* Memento */,
+				C8C07E462553245600A43ACC /* Oservable */,
 				C8894427255303E200DEE93B /* Strategy */,
 				C850CC69254D48F1000A1803 /* Models */,
 				C850CC75254D50A1000A1803 /* Components */,
@@ -205,6 +208,14 @@
 			path = Strategy;
 			sourceTree = "<group>";
 		};
+		C8C07E462553245600A43ACC /* Oservable */ = {
+			isa = PBXGroup;
+			children = (
+				C8C07E472553249000A43ACC /* Oservable.swift */,
+			);
+			path = Oservable;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -281,6 +292,7 @@
 				C850CC4E2549EEEC000A1803 /* GameViewController.swift in Sources */,
 				C8894419254EF39A00DEE93B /* GameSession.swift in Sources */,
 				C850CC63254A6A32000A1803 /* Question.swift in Sources */,
+				C8C07E482553249000A43ACC /* Oservable.swift in Sources */,
 				C850CC79254D5166000A1803 /* ResultTableViewCell.swift in Sources */,
 				C850CC72254D4C1B000A1803 /* ResultViewController.swift in Sources */,
 				C850CC66254B4C85000A1803 /* QuestionData.swift in Sources */,

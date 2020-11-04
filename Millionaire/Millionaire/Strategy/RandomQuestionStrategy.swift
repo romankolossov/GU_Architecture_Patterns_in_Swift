@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RandomQuestionStrategy: QuestinableStrategy {
+class RandomQuestionStrategy: StrategyQuestinable {
     func generateQuestions() -> [Question] {
         let questionData = QuestionData()
         let questions = questionData.getQuestions()

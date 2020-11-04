@@ -7,6 +7,6 @@
 
 import Foundation
 //questinable
-protocol QuestinableStrategy {
+protocol StrategyQuestinable {
     func generateQuestions() -> [Question]
 }
