@@ -15,16 +15,16 @@ class GameSingleton {
     // Some variables
     private(set) var gameSessions: [GameSession] {
         didSet {
-            gameSessionsCaretaker.saveGameSessions(gameSessions: gameSessions)
+            gameSessionCaretaker.saveGameSessions(gameSessions: gameSessions)
         }
     }
     
     // Caretaker
-    private let gameSessionsCaretaker = GameSessionsCaretaker()
+    private let gameSessionCaretaker = GameSessionCaretaker()
     
     // Initializer
     private init() {
-        gameSessions = gameSessionsCaretaker.loadGameSessions() ?? []
+        gameSessions = gameSessionCaretaker.loadGameSessions() ?? []
     }
     
     // MARK: - Major methods

@@ -28,6 +28,14 @@ class CustomQuestionViewController: UIViewController {
     @objc private func resumeButtonAction()  {
         guard let mainVC = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { fatalError() }
         
+        let customQuestion = Question(question: questionTextView.text,
+                                      rightAnswer: rightAnswerTextField.text ?? "",
+                                      choiceA: answerATextField.text ?? "",
+                                      choiceB: answerBTextField.text ?? "",
+                                      choiceC: answerCTextField.text ?? "")
+        
+        CustomQuestionSingleton.shared.addCustomQuestion(question: customQuestion)
+        
         dismiss(animated: true, completion: nil)
         present(mainVC, animated: true, completion: nil)
     }
