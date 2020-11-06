@@ -58,8 +58,8 @@ class MainViewController: UIViewController {
 // MARK: - GameViewControllerDelegate
 
 extension MainViewController: GameViewControllerDelegate {
-    func didEndGame(with result: Int) {
-        let gameSession = GameSession(date: Date(), score: result)
+    func didEndGame(with result: Int, questionsInGame: Int) {
+        let gameSession = GameSession(date: Date(), score: result, questionsInGame: questionsInGame)
         
         GameSingleton.shared.addGameSession(gameSession: gameSession)
         scoreByDelegateLabel.text = "Your last result is: \(result) (by delegate)"

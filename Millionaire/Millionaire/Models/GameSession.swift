@@ -11,4 +11,5 @@ import Foundation
 struct GameSession: Codable {
     let date: Date
     let score: Int
+    let questionsInGame: Int
 }

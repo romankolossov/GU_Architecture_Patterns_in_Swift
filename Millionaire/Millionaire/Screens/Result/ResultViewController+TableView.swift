@@ -26,8 +26,7 @@ extension ResultViewController: UITableViewDataSource {
         let date = gameSession.date
         let stringDate = dateFormater.string(from: date)
         
-        //  let completion = Int(Double(gameSession.score) / Double(self.numberOfQuestions))
-        let completion = Int(Double(gameSession.score) / Double(10))
+        let completion = Int(Double(gameSession.score) / Double(gameSession.questionsInGame))
         
         cell.dateLabel.text = stringDate
         cell.scoreLabel.text = "\(gameSession.score)"

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol GameViewControllerDelegate: AnyObject {
-    func didEndGame(with result: Int)
+    func didEndGame(with result: Int, questionsInGame: Int)
 }
 
 class GameViewController: UIViewController {
@@ -129,7 +129,7 @@ class GameViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
                 guard let self = self else { return }
                 
-                self.gameVCDelegate?.didEndGame(with: self.score.value)
+                self.gameVCDelegate?.didEndGame(with: self.score.value, questionsInGame: self.numberOfQuestions)
                 self.onGameEnd?(self.score.value)
                 
                 self.dismiss(animated: true, completion: nil)
@@ -150,7 +150,7 @@ class GameViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
                 guard let self = self else { return }
                 
-                self.gameVCDelegate?.didEndGame(with: self.score.value)
+                self.gameVCDelegate?.didEndGame(with: self.score.value, questionsInGame: self.numberOfQuestions)
                 self.onGameEnd?(self.score.value)
                 
                 self.dismiss(animated: true, completion: nil)

@@ -19,8 +19,21 @@ class CustomQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        lookConfigure()
+        
         // MARK: - Targets
         resumeButton.addTarget(self, action: #selector(resumeButtonAction), for: .touchUpInside)
+    }
+    
+    // MARK: - Main Methods
+    
+    private func lookConfigure() {
+        
+        questionTextView.backgroundColor = .quaternarySystemFill
+        rightAnswerTextField.backgroundColor = .quaternarySystemFill
+        answerATextField.backgroundColor = .quaternarySystemFill
+        answerBTextField.backgroundColor = .quaternarySystemFill
+        answerCTextField.backgroundColor = .quaternarySystemFill
     }
     
     // MARK: - Actions
