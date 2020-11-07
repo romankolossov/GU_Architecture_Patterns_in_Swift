@@ -137,8 +137,8 @@ class GameViewController: UIViewController {
             }
             return
         }
-        
         button.titleLabel?.backgroundColor = .green
+        
         score.value += 100
         
         guard (questionNumber % numberOfQuestions) != 0 else {
@@ -158,7 +158,6 @@ class GameViewController: UIViewController {
             }
             return
         }
-        
         questionNumber += 1
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
@@ -174,7 +173,6 @@ class GameViewController: UIViewController {
     @objc private func answerAButtonAction()  {
         checkRightAnswer(for: questionNumber, whenPressed: answerAButton)
     }
-    
     @objc private func answerBButtonAction()  {
         checkRightAnswer(for: questionNumber, whenPressed: answerBButton)
     }
@@ -182,7 +180,6 @@ class GameViewController: UIViewController {
     @objc private func answerCButtonAction()  {
         checkRightAnswer(for: questionNumber, whenPressed: answerCButton)
     }
-    
     @objc private func answerDButtonAction()  {
         checkRightAnswer(for: questionNumber, whenPressed: answerDButton)
     }
