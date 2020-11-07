@@ -18,13 +18,6 @@ class ResultViewController: UIViewController {
         }
     }
     
-    let dateFormater: DateFormatter = {
-        let df = DateFormatter()
-        df.dateFormat = "dd.MM.yyyy HH.mm"
-        
-        return df
-    }()
-    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
