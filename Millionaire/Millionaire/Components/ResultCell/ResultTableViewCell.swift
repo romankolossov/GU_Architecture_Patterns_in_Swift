@@ -17,6 +17,13 @@ class ResultTableViewCell: UITableViewCell {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var completionLabel: UILabel!
     
+    let dateFormater: DateFormatter = {
+        let datefFormater = DateFormatter()
+        datefFormater.dateFormat = "dd.MM.yyyy HH.mm"
+        
+        return datefFormater
+    }()
+    
     // Delegate property
     weak var cellDelegate: ResultTableViewCellDelegate!
     
@@ -35,6 +42,19 @@ class ResultTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    // MARK: - Major Methods
+    
+    func lookCofigure(with viewModel: GameSession) {
+        let completion = Int(Double(viewModel.score) / Double(viewModel.questionsInGame))
+        
+        let date = viewModel.date
+        let stringDate = dateFormater.string(from: date)
+        
+        dateLabel.text = stringDate
+        scoreLabel.text = "\(viewModel.score)"
+        completionLabel.text = "\(completion)%"
     }
     
     // MARK: - Actions

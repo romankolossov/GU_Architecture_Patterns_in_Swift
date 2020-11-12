@@ -23,12 +23,7 @@ extension ResultViewController: UITableViewDataSource {
         
         let gameSession = GameSingleton.shared.gameSessions[indexPath.row]
         
-        let date = gameSession.date
-        let stringDate = dateFormater.string(from: date)
-        
-        cell.dateLabel.text = stringDate
-        cell.scoreLabel.text = "\(gameSession.score)"
-        cell.completionLabel.text = "\(gameSession.score / 10)%"
+        cell.lookCofigure(with: gameSession)
         
         cell.cellDelegate = self
         

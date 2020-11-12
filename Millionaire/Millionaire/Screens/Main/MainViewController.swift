@@ -11,12 +11,27 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var scoreByDelegateLabel: UILabel!
     @IBOutlet weak var scoreByClosureLabel: UILabel!
+    @IBOutlet weak var difficultySegmentControl: UISegmentedControl!
+    
+    // Some properties
+    private var selectedDifficulty: Difficulty {
+        switch difficultySegmentControl.selectedSegmentIndex {
+        case 0:
+            return .normal
+        case 1:
+            return .random
+        default:
+            return .normal
+        }
+    }
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scoreByDelegateLabel.text = "Your last result is: \(GameSingleton.shared.gameSessions.last?.score.description ?? "0")"
+        let lasrResultScore = GameSingleton.shared.gameSessions.last?.score.description ?? "0"
+        
+        scoreByDelegateLabel.text = "Your last result is: \(lasrResultScore)"
         
         scoreByClosureLabel.isHidden = true
     }
@@ -27,6 +42,8 @@ class MainViewController: UIViewController {
             guard let destination =  segue.destination as? GameViewController else { return }
             
             destination.gameVCDelegate = self
+            
+            destination.difficulty = selectedDifficulty
             
             destination.onGameEnd = { [weak self] result in
                 self?.scoreByClosureLabel.text = "Your last result is: \(result) (by closure)"
@@ -41,8 +58,8 @@ class MainViewController: UIViewController {
 // MARK: - GameViewControllerDelegate
 
 extension MainViewController: GameViewControllerDelegate {
-    func didEndGame(with result: Int) {
-        let gameSession = GameSession(date: Date(), score: result)
+    func didEndGame(with result: Int, questionsInGame: Int) {
+        let gameSession = GameSession(date: Date(), score: result, questionsInGame: questionsInGame)
         
         GameSingleton.shared.addGameSession(gameSession: gameSession)
         scoreByDelegateLabel.text = "Your last result is: \(result) (by delegate)"

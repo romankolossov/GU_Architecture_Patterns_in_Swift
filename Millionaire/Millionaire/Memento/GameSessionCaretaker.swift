@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GameSessionsCaretaker {
+class GameSessionCaretaker {
     
     // Some properties
     private let encoder = JSONEncoder()

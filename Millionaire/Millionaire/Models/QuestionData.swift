@@ -9,13 +9,13 @@ import Foundation
 
 final class QuestionData {
     
-    let question1 = Question(question: "Итак, первый вопрос! На каком инструменте, как считается, играл древнерусский певец и сказитель Боян?",
+    let question1 = Question(question: "На каком инструменте, как считается, играл древнерусский певец и сказитель Боян?",
                              rightAnswer: "На гуслях",
                              choiceA: "На виолончели",
                              choiceB: "На баяне",
                              choiceC: "На гитаре")
     
-    let question2 = Question(question: "Продолжаем игру. В какой из этих стран один из официальных языков - французский?",
+    let question2 = Question(question: "В какой из этих стран один из официальных языков - французский?",
                              rightAnswer: "Республика Гаити",
                              choiceA: "Кения",
                              choiceB: "Эквадор",
@@ -33,7 +33,7 @@ final class QuestionData {
                              choiceB: "1616",
                              choiceC: "1773")
     
-    let question5 = Question(question: "Вопрос номер пять. Кто автор музыки к детской песенке Чунга-Чанга?",
+    let question5 = Question(question: "Кто автор музыки к детской песенке Чунга-Чанга?",
                              rightAnswer: "Шаинский",
                              choiceA: "Зацепин",
                              choiceB: "Дербенёв",
@@ -45,13 +45,13 @@ final class QuestionData {
                              choiceB: "Чёрный квадрат",
                              choiceC: "Точильщик")
     
-    let question7 = Question(question: "Вы почти дошли до финала! Шкала Сковилла - это шкала оценки...",
+    let question7 = Question(question: "Шкала Сковилла - это шкала оценки...",
                              rightAnswer: "Остроты перца",
                              choiceA: "Качества воздуха",
                              choiceB: "Привлекательности женщин",
                              choiceC: "Уровня моря")
     
-    let question8 = Question(question: "Восьмой вопрос! Какой титул имел Дон Кихот?",
+    let question8 = Question(question: "Какой титул имел Дон Кихот?",
                              rightAnswer: "Идальго",
                              choiceA: "Барон",
                              choiceB: "Маркиз",
@@ -63,7 +63,7 @@ final class QuestionData {
                              choiceB: "Джордж Оруэлл",
                              choiceC: "Сомерсет Моэм")
     
-    let question10 = Question(question: "Решающий вопрос. Как называется самая глубокая точка поверхности Земли, находящаяся на дне Марианской впадины?",
+    let question10 = Question(question: "Как называется самая глубокая точка поверхности Земли, находящаяся на дне Марианской впадины?",
                               rightAnswer: "Бездна Челленджера",
                               choiceA: "Филиппинская плита",
                               choiceB: "Кермадек",
@@ -72,6 +72,10 @@ final class QuestionData {
     // MARK: Major Methods
     
     func getQuestions() -> [Question] {
-        [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
+        let questions: [Question] = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
+        
+        let customQuestions: [Question] = CustomQuestionSingleton.shared.customQuestions
+        
+        return questions + customQuestions
     }
 }
